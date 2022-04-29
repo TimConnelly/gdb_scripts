@@ -38,14 +38,12 @@ docker run -e DISPLAY=host.docker.internal:0 jess/firefox
 1. .gdbinit files
 Contents of /root/.gdbinit (we should not be using root as the user, in which case, this would be /home/<user>/.gdbinit)
 ```
-add-auto-load-safe-path /usr/src/hue/.gdbinit
+add-auto-load-safe-path <path-to-source>/.gdbinit
 ```
 
 Example Local .gdbinit
 ```
 source /path/to/cv_imshow.py
-
-set args -t=1 -o="output/debug" -s="sars-cov-antigen" "input/FalsePositive"
 ```
 
 ## Usage
@@ -72,3 +70,7 @@ https://gist.github.com/paul-krohn/e45f96181b1cf5e536325d1bdee6c949
 https://gist.github.com/CMCDragonkai/4e9464d9f32f5893d837f3de2c43daa4
 
 https://stackoverflow.com/questions/12933335/tkagg-backend-problems
+
+https://news.ycombinator.com/item?id=13700512
+
+https://interrupt.memfault.com/blog/automate-debugging-with-gdb-python-api

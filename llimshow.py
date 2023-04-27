@@ -36,10 +36,11 @@ def llimshow(debugger, command, exe_ctx, results, internal_dict):
     elem_size = int(mat.EvaluateExpression("elemSize()").value)
     depth = int(mat.EvaluateExpression("depth()").value)
     total = int(mat.EvaluateExpression("total()").value)
+    isContinuous = mat.EvaluateExpression("isContinuous()").value
     data_ptr = mat.GetChildMemberWithName("data")
     num_bytes = total*elem_size  #rows*cols*elem_size
     img = np.zeros(total)
-    print(f'depth={depth}, total={total}, channels={num_channels}, elemSize={elem_size}, num_bytes={num_bytes}')
+    print(f'depth={depth}, total={total}, channels={num_channels}, elemSize={elem_size}, num_bytes={num_bytes}, isContinuous={isContinuous}')
 
     if depth == 0: # U8
         img = np.array(data_ptr.GetPointeeData(0, num_bytes).uint8, copy=True)
